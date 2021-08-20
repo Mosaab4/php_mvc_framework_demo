@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Application;
 use App\Core\Controller;
+use App\Core\Request;
 
 class SiteController extends Controller
 {
@@ -22,8 +23,9 @@ class SiteController extends Controller
         return $this->render('contact');
     }
 
-    public function handleContact()
+    public function handleContact(Request $request)
     {
+        $body = $request->getBody();
         return 'Post request';
     }
 }
