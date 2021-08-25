@@ -11,7 +11,9 @@
             "App\\" : "./"
         }
     },
-    "require": {},
+    "require": {
+        "vlucas/phpdotenv": "^5.3"
+    },
     "scripts": {
         "serve" : "php -S 127.0.0.1:8000 public/index.php"
     }
