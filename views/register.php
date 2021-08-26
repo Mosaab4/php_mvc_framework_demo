@@ -2,10 +2,10 @@
 <?php $form = \App\Core\Form\Form::begin('', 'POST') ?>
     <div class="row">
         <div class="col">
-            <?php echo $form->field($model,'firstName') ?>
+            <?php echo $form->field($model,'firstname') ?>
         </div>
         <div class="col">
-            <?php echo $form->field($model,'lastName') ?>
+            <?php echo $form->field($model,'lastname') ?>
         </div>
     </div>
 

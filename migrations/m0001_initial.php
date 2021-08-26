@@ -13,7 +13,7 @@ class m0001_initial
             email varchar(255) not null ,
             firstname varchar(255) not null ,
             lastname varchar(255) not null ,
-            status tinyint not null,
+            status tinyint not null default 0,
             created_at timestamp default current_timestamp
         ) engine=INNODB;";
 
