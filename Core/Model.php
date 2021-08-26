@@ -22,6 +22,11 @@ abstract class Model
         }
     }
 
+    public function getLabel($attribute)
+    {
+        return $this->labels()[$attribute] ?? $attribute;
+    }
+
     public function validate()
     {
         foreach ($this->rules() as $attribute => $rules) {
@@ -49,12 +54,13 @@ abstract class Model
                 }
 
                 if ($ruleName === self::RULE_MATCH && $value !== $this->{$rule['match']}) {
+                    $rule['match'] = $this->getLabel($rule['match']);
                     $this->addError($attribute, self::RULE_MATCH, $rule);
                 }
 
                 if ($ruleName === self::RULE_UNIQUE) {
                     $className = $rule['class'];
-                    
+
                     $uniqueAttribute = $rule['attribute'] ?? $attribute;
                     $tableName = $className::tableName();
 
@@ -68,7 +74,7 @@ abstract class Model
                     $record = $statement->fetchObject();
 
                     if ($record) {
-                        $this->addError($attribute, self::RULE_UNIQUE,['field' => $attribute]);
+                        $this->addError($attribute, self::RULE_UNIQUE, ['field' => $this->getLabel($attribute)]);
                     }
                 }
             }
@@ -100,6 +106,11 @@ abstract class Model
             self::RULE_MATCH    => 'This field must be the same as {match}',
             self::RULE_UNIQUE   => 'Record with this {field} already exists'
         ];
+    }
+
+    public function labels(): array
+    {
+        return [];
     }
 
     public function hasError($attribute): bool
