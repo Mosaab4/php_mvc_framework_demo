@@ -5,27 +5,35 @@ namespace App\Controllers;
 use App\Core\Application;
 use App\Core\Controller;
 use App\Core\Request;
+use App\Core\Response;
+use App\Models\ContactForm;
 
 class SiteController extends Controller
 {
     public function home()
     {
         $params = [
-            'name'  =>  'mosaab'
+            'name' => 'mosaab'
         ];
 
-        return $this->render('home' , $params);
+        return $this->render('home', $params);
     }
 
 
-    public function contact()
+    public function contact(Request $request, Response $response)
     {
-        return $this->render('contact');
-    }
+        $contact = new ContactForm();
 
-    public function handleContact(Request $request)
-    {
-        $body = $request->getBody();
-        return 'Post request';
+        if ($request->isPost()) {
+            $contact->loadData($request->getBody());
+            if ($contact->validate() ) {
+                Application::$app->session->setFlash('success', 'Thanks for contacting us');
+                $response->redirect('/contact');
+            }
+        }
+
+        return $this->render('contact',[
+            'model' => $contact
+        ]);
     }
 }
