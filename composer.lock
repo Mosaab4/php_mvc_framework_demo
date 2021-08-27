@@ -74,16 +74,16 @@
         },
         {
             "name": "mosaab/core",
-            "version": "v1.0.2",
+            "version": "v1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Mosaab4/mvc-core.git",
-                "reference": "d76beace1bf5c5813662af13c623691d4253ca51"
+                "reference": "b662b557f19e0e0269762f91486b07fb7ea1410f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Mosaab4/mvc-core/zipball/d76beace1bf5c5813662af13c623691d4253ca51",
-                "reference": "d76beace1bf5c5813662af13c623691d4253ca51",
+                "url": "https://api.github.com/repos/Mosaab4/mvc-core/zipball/b662b557f19e0e0269762f91486b07fb7ea1410f",
+                "reference": "b662b557f19e0e0269762f91486b07fb7ea1410f",
                 "shasum": ""
             },
             "type": "library",
@@ -95,9 +95,9 @@
             "notification-url": "https://packagist.org/downloads/",
             "support": {
                 "issues": "https://github.com/Mosaab4/mvc-core/issues",
-                "source": "https://github.com/Mosaab4/mvc-core/tree/v1.0.2"
+                "source": "https://github.com/Mosaab4/mvc-core/tree/v1.0.3"
             },
-            "time": "2021-08-27T21:28:15+00:00"
+            "time": "2021-08-27T22:05:01+00:00"
         },
         {
             "name": "phpoption/phpoption",
