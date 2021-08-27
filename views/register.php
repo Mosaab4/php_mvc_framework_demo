@@ -1,3 +1,5 @@
+<?php /** @var $model \App\Models\User */?>
+
 <h1>Register</h1>
 <?php $form = \App\Core\Form\Form::begin('', 'POST') ?>
     <div class="row">
