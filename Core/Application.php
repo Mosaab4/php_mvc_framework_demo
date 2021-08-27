@@ -5,12 +5,14 @@ namespace App\Core;
 class Application
 {
     public static string $ROOT_DIR;
+
+    public string $layout = 'main';
     public static Application $app;
     public string $userClass;
     public Router $router;
     public Request $request;
     public Response $response;
-    public Controller $controller;
+    public ?Controller $controller = null;
     public Database $db;
     public Session $session;
     public ?DbModel $user;
@@ -31,7 +33,7 @@ class Application
         if ($primaryValue) {
             $primaryKey = $this->userClass::primaryKey();
             $this->user = $this->userClass::findOne([$primaryKey => $primaryValue]);
-        }else{
+        } else {
             $this->user = null;
         }
 
@@ -54,7 +56,14 @@ class Application
 
     public function run()
     {
-        echo $this->router->resolve();
+        try {
+            echo $this->router->resolve();
+        }catch (\Exception $e){
+            $this->response->setStatusCode($e->getCode());
+            echo $this->router->renderView('_error' , [
+                'e' => $e
+            ]);
+        }
     }
 
     public function login(DbModel $user)
