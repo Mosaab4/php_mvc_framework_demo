@@ -4,7 +4,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 use App\Controllers\AuthController;
 use App\Controllers\SiteController;
-use App\Core\Application;
+use Mosaab\MVC\Application;
 use App\Models\User;
 use Dotenv\Dotenv;
 

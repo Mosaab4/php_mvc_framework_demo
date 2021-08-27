@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9078a89be9bebe310ef0fa1d57923747",
+    "content-hash": "f54893b47abdd426ca4896255a72c052",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -71,6 +71,33 @@
                 }
             ],
             "time": "2020-04-13T13:17:36+00:00"
+        },
+        {
+            "name": "mosaab/core",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Mosaab4/mvc-core.git",
+                "reference": "d76beace1bf5c5813662af13c623691d4253ca51"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Mosaab4/mvc-core/zipball/d76beace1bf5c5813662af13c623691d4253ca51",
+                "reference": "d76beace1bf5c5813662af13c623691d4253ca51",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Mosaab\\MVC\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "issues": "https://github.com/Mosaab4/mvc-core/issues",
+                "source": "https://github.com/Mosaab4/mvc-core/tree/v1.0.2"
+            },
+            "time": "2021-08-27T21:28:15+00:00"
         },
         {
             "name": "phpoption/phpoption",

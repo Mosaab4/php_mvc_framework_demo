@@ -1,7 +1,7 @@
 <?php
 
-use App\Core\Form\Form;
-use App\Core\Form\TextareaField;
+use Mosaab\MVC\Form\Form;
+use Mosaab\MVC\Form\TextareaField;
 use App\Models\ContactForm;
 
 $this->title = 'contact';

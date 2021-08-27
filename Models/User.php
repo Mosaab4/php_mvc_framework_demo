@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Core\UserModel;
+use Mosaab\MVC\UserModel;
 
 class User extends UserModel
 {

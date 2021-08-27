@@ -1,6 +1,6 @@
 <?php
 
-use App\Core\Application;
+use Mosaab\MVC\Application;
 
 class m0002_add_password_column_table
 {

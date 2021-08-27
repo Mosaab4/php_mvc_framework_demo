@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
-use App\Core\Application;
-use App\Core\Controller;
-use App\Core\Middlewares\AuthMiddleware;
-use App\Core\Request;
-use App\Core\Response;
+use Mosaab\MVC\Application;
+use Mosaab\MVC\Controller;
+use Mosaab\MVC\Middlewares\AuthMiddleware;
+use Mosaab\MVC\Request;
+use Mosaab\MVC\Response;
 use App\Models\LoginForm;
 use App\Models\User;
 

@@ -1,6 +1,7 @@
 <?php
 
-use App\Core\Application;
+
+use Mosaab\MVC\Application;
 
 class m0001_initial
 {

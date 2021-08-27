@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use App\Core\Application;
-use App\Core\Model;
+use Mosaab\MVC\Application;
+use Mosaab\MVC\Model;
 
 class LoginForm extends Model
 {

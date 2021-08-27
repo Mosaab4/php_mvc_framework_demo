@@ -1,4 +1,4 @@
-<?php use App\Core\Application; ?>
+<?php use Mosaab\MVC\Application; ?>
 
 <!doctype html>
 <html lang="en">
