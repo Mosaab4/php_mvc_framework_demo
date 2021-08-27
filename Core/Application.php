@@ -2,12 +2,14 @@
 
 namespace App\Core;
 
+use App\Core\DB\Database;
+use Exception;
+
 class Application
 {
     public static string $ROOT_DIR;
-
-    public string $layout = 'main';
     public static Application $app;
+    public string $layout = 'main';
     public string $userClass;
     public Router $router;
     public Request $request;
@@ -15,7 +17,7 @@ class Application
     public ?Controller $controller = null;
     public Database $db;
     public Session $session;
-    public ?DbModel $user;
+    public ?UserModel $user;
     public View $view;
 
     public function __construct($rootPath, array $config)
@@ -41,34 +43,24 @@ class Application
 
     }
 
-    public static function isGuest()
+    public static function isGuest(): bool
     {
         return !self::$app->user;
-    }
-
-    public function getController(): Controller
-    {
-        return $this->controller;
-    }
-
-    public function setController(Controller $controller): void
-    {
-        $this->controller = $controller;
     }
 
     public function run()
     {
         try {
             echo $this->router->resolve();
-        }catch (\Exception $e){
+        } catch (Exception $e) {
             $this->response->setStatusCode($e->getCode());
-            echo $this->view->renderView('_error' , [
+            echo $this->view->renderView('_error', [
                 'e' => $e
             ]);
         }
     }
 
-    public function login(DbModel $user)
+    public function login(UserModel $user): bool
     {
         $this->user = $user;
         $primaryKey = $user->primaryKey();

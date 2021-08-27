@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace App\Core\DB;
 
+use App\Core\Application;
 use PDO;
 
 class Database
@@ -74,21 +75,21 @@ class Database
         return $statement->fetchAll(PDO::FETCH_COLUMN);
     }
 
+    protected function log($message)
+    {
+        echo '[' . date('Y-m-d H:i:s') . '] - ' . $message . PHP_EOL;
+    }
+
     public function saveMigrations(array $migrations)
     {
         $str = implode(",", array_map(fn($migration) => "('$migration')", $migrations));
 
-        $statment = $this->pdo->prepare("
+        $statement = $this->pdo->prepare("
             INSERT INTO migrations (migration) VALUES
             $str
         ");
 
-        $statment->execute();
-    }
-
-    protected function log($message)
-    {
-        echo '[' . date('Y-m-d H:i:s') . '] - ' . $message . PHP_EOL;
+        $statement->execute();
     }
 
     public function prepare($sql)
